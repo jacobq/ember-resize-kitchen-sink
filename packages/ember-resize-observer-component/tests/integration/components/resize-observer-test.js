@@ -371,7 +371,7 @@ module('Integration | Component | resize-observer', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           "Assertion Failed: resize-observer-component: matchers must be an object, but was 'string'"
         );
@@ -391,7 +391,7 @@ module('Integration | Component | resize-observer', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           "Assertion Failed: resize-observer-component: invalid matcher 'wrong': query must be an object, but was 'array'"
         );
@@ -414,7 +414,7 @@ module('Integration | Component | resize-observer', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           "Assertion Failed: resize-observer-component: invalid matcher 'wrong': invalid feature 'aspect', expected one of width,height,aspectRatio"
         );
@@ -437,7 +437,7 @@ module('Integration | Component | resize-observer', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           "Assertion Failed: resize-observer-component: invalid matcher 'wrong': invalid operator 'wide', expected one of eq,gt,gte,lt,lte"
         );
@@ -460,7 +460,7 @@ module('Integration | Component | resize-observer', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           "Assertion Failed: resize-observer-component: invalid matcher 'wrong': invalid value type 'string', expected number"
         );

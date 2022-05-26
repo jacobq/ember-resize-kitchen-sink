@@ -20,8 +20,8 @@ module('Unit | Service | resize-observer', function (hooks) {
       const service = this.owner.lookup('service:resize-observer');
 
       assert.false(service.isEnabled, 'isEnabled is false');
-      assert.equal(service.callbacks, null, 'callbacks is null');
-      assert.equal(service.observer, null, 'observer is null');
+      assert.strictEqual(service.callbacks, null, 'callbacks is null');
+      assert.strictEqual(service.observer, null, 'observer is null');
     });
 
     test('it is disabled if ResizeObserver is not available', function (assert) {
@@ -29,8 +29,8 @@ module('Unit | Service | resize-observer', function (hooks) {
       const service = this.owner.lookup('service:resize-observer');
 
       assert.false(service.isEnabled, 'isEnabled is false');
-      assert.equal(service.callbacks, null, 'callbacks is null');
-      assert.equal(service.observer, null, 'observer is null');
+      assert.strictEqual(service.callbacks, null, 'callbacks is null');
+      assert.strictEqual(service.observer, null, 'observer is null');
     });
   });
 
@@ -91,7 +91,11 @@ module('Unit | Service | resize-observer', function (hooks) {
 
       service.observe(element, callback);
 
-      assert.equal(service.callbacks.get(element).size, 1, 'has an element with a single callback');
+      assert.strictEqual(
+        service.callbacks.get(element).size,
+        1,
+        'has an element with a single callback'
+      );
 
       service.unobserve(element, callback);
 
@@ -126,7 +130,11 @@ module('Unit | Service | resize-observer', function (hooks) {
       service.observe(element, () => null);
       service.observe(element, () => null);
 
-      assert.equal(service.callbacks.get(element).size, 2, 'has an element with two callbacks');
+      assert.strictEqual(
+        service.callbacks.get(element).size,
+        2,
+        'has an element with two callbacks'
+      );
 
       service.unobserve(element);
 
@@ -191,7 +199,7 @@ module('Unit | Service | resize-observer', function (hooks) {
       sinon.stub(service, 'isEnabled').get(() => false);
       service.clear();
 
-      assert.equal(service.callbacks, serviceCallbacks, 'did not reset callbacks map');
+      assert.strictEqual(service.callbacks, serviceCallbacks, 'did not reset callbacks map');
       assert.spy(disconnectSpy).notCalled();
     });
   });

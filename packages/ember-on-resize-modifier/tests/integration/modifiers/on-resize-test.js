@@ -177,7 +177,7 @@ module('Integration | Modifier | on-resize', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           'Assertion Failed: on-resize-modifier: callback must be a function, but was [object Object]'
         );
@@ -196,7 +196,7 @@ module('Integration | Modifier | on-resize', function (hooks) {
       assert.expect(1);
 
       setupOnerror(error => {
-        assert.equal(
+        assert.strictEqual(
           error.message,
           'Assertion Failed: on-resize-modifier: callback must be a function, but was undefined'
         );
